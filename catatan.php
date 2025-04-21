@@ -31,3 +31,38 @@ Anda mungkin ingin menghitung total harga dari semua barang yang terlibat dalam 
  synatx trigger sql karena saya merasa lebih mudah menggunakan synatx php daripada SQL
  pada halaman tambah-proses.php di transaksi terdapat syntax 
  yang berguna untuk mengurangi stok secara otomatis
+
+Sintaks SQL untuk membuat trigger “kurangi stok” setelah insert di table barang:
+
+CREATE TRIGGER nama_trigger
+AFTER INSERT ON barang
+FOR EACH ROW
+BEGIN
+  UPDATE produk
+  SET stok = stok - NEW.jumlah
+  WHERE id_produk = NEW.id_produk;
+END;
+
+Trigger BEFORE UPDATE di barang untuk tolak jika NEW.jumlah > OLD.jumlah
+CREATE TRIGGER cek_jumlah
+BEFORE UPDATE ON barang
+FOR EACH ROW
+BEGIN
+  IF NEW.jumlah > OLD.jumlah THEN
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Jumlah tidak boleh lebih besar dari sebelumnya';
+  END IF;
+END;
+
+Trigger SQL untuk catat history stok
+CREATE TRIGGER after_update_produk
+AFTER UPDATE ON produk
+FOR EACH ROW
+BEGIN
+  INSERT INTO stok_history (id_produk, perubahan, tanggal)
+  VALUES (
+    OLD.id_produk,
+    NEW.stok - OLD.stok,
+    NOW()
+  );
+END;
