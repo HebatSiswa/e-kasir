@@ -1,0 +1,34 @@
+Silakan dijelaskan secara singkat, apa tujuan dari aplikasi e-kasir yang kamu buat?
+
+Tujuan dari aplikasi e-kasir ini adalah untuk mempermudah proses transaksi penjualan di toko, 
+apalagi ini sudah dilengkapi dengan pengurangan stok secara otomatis dan juga total pembayaran serta jumlah kembalian jika uang yang di inputkan lebih besar dari total pembayaran. hala ini akan sangat membantu bagi orang yang kurang bisa menghitung cepat maupun jika ada orang yang membeli banyak produk sekaligus.
+
+mengelola data produk, dan menghasilkan laporan penjualan secara otomatis. Aplikasi ini juga dilengkapi sistem login multiuser agar ada pemisahan hak akses antara admin dan kasir.
+
+
+Apa perbedaan hak akses antara admin dan kasir dalam aplikasi kamu?
+
+💬 JAWABAN:
+Admin memiliki akses penuh, seperti mengelola data produk, user, dan melihat laporan penjualan. Sedangkan kasir hanya bisa mengakses fitur transaksi penjualan dan melihat riwayat transaksi yang sudah dilakukan dan hanya bisa melihat stok yang ada tanpa bisa mengedit maupun menambahnya.
+
+Bisa jelaskan bagaimana proses transaksi dilakukan oleh kasir?
+
+💬 JAWABAN:
+Kasir akan memilih produk yang dibeli oleh pelanggan, memasukkan jumlah pembelian, dan sistem akan otomatis menghitung total harga.Kemudian akan terdapat 2 pilihan pada halaman transaksi yaitu tambah produk dan bayar. Jika kita ingin melakukan transaksi dengan lebih dari 1 produk maka pilih button tambah produk, sedangkan jika kita sekiranya telah cukup melakukan transaksinya maka klik pada bayar, dan masukkan nominal uang yang sesuai dengan total harga yang tertera pada sistem, jika kita me inputkan nominal uang yang lebih besar dari total harga maka sistem akan otomatis mengembalikan uang yang tersisa. Setelah transaksi dikonfirmasi, stok produk akan berkurang sesuai jumlah yang dibeli dan nota akan dicetak.
+
+
+Jika stok produk 0, lalu kasir tetap melakukan transaksi, apa yang akan terjadi?
+
+💬 JAWABAN:
+Sistem akan mengecek stok terlebih dahulu sebelum transaksi diproses. Jika stok tidak mencukupi, maka sistem akan menampilkan pesan error dan tidak akan memproses transaksi.
+
+Kalau aplikasi ini dikembangkan lebih lanjut, kamu ingin menambahkan fitur apa?
+
+💬 JAWABAN:
+Saya ingin menambahkan fitur export laporan ke PDF atau Excel, manajemen diskon atau promo, dan notifikasi stok hampir habis agar admin bisa segera restok.
+
+e-Kasir adalah solusi POS sederhana yang cocok untuk usaha kecil dan menengah (UKM) yang membutuhkan sistem kasir digital tanpa biaya lisensi. Dengan fitur-fitur dasar seperti manajemen produk, stok, transaksi, dan laporan, aplikasi ini dapat membantu meningkatkan efisiensi operasional bisnis. Namun, untuk penggunaan di lingkungan produksi, disarankan untuk melakukan pengujian menyeluruh dan penyesuaian sesuai kebutuhan spesifik bisnis Anda.​
+
+:Kenapa di hapus.php transaksi mengambil 2 tabel yaitu tabel barang dan transaksi karena 
+"Saya pahami bahwa data produk ada di dua tabel: transaksi dan barang. Jadi saya pastikan stok dikembalikan dari dua sumber untuk menjaga integritas data."
+karena produk yang pertama kita masukkan ke transaksi akan masuk ke dalam tabel transaksi sedangkan untuk produk tambahan akan masuk ke dalam tabel barang, jadi  jika kita hanya menghapus dari tabel transaksi maka stok produk yang berada di tabelbarang akan hilang tidak terdeteksi, sehingga bisa menyebabkan kerugian
