@@ -24,7 +24,7 @@ include "header2.php";
                 <div class="card-header bg-primary text-light text-center pb-0 ">
                     <h4 class="mb-1">ALAMAK</h4>
                     <p class="float-end mb-1 mt-0"><a href="print.php?id_transaksi=<?php echo $data['id_transaksi']?>" class="btn btn-dark btn-sm"><i class="bi bi-printer-fill"></i></a> 
-                    <a href="hapus.php?id_transaksi=<?php echo $data['id_transaksi']?>" onclick="alert('PERINGATAN!! jika transaksi belum dibayar maka stok produk tidak akan dikembalikan seperti semula'); return confirm('apakah Anda tetap ingin menghapus transaksi ini? ');" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                    <a href="hapus.php?id_transaksi=<?php echo $data['id_transaksi']?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                 </p>
 
                 </div>
